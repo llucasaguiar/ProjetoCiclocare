@@ -356,13 +356,13 @@ body{
 @media(max-width:1200px){
 
   .dashboard{
-
     grid-template-columns:1fr;
   }
 
   .menu{
     display:none;
   }
+
 }
 
 @media(max-width:700px){
@@ -384,135 +384,167 @@ body{
     font-size:1rem;
   }
 
-  .selected{
-  outline:3px solid #ff4f8d;
+}
+
+.selected{
+
+  background:#ff4f8d;
+
+  color:white;
 
   transform:scale(1.05);
+
+  box-shadow:
+  0 5px 15px rgba(255,79,141,0.4);
 }
 
-.mood-options{
+.mood-options,
+.energy-options{
 
   display:flex;
-  gap:14px;
+  flex-wrap:wrap;
+  gap:16px;
 
-  margin:
-  15px 0 20px;
+  margin:18px 0 25px;
 }
 
-.mood-btn{
+.mood-btn,
+.energy-btn{
 
-  width:75px;
-  height:75px;
+  width:78px;
+  height:78px;
 
   border:none;
 
-  border-radius:50%;
+  border-radius:24px;
 
   background:
-  rgba(255,255,255,0.7);
+  rgba(255,255,255,0.35);
 
-  font-size:2.5rem;
+  backdrop-filter:blur(12px);
+
+  -webkit-backdrop-filter:blur(12px);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-size:2.4rem;
 
   cursor:pointer;
 
-  transition:0.3s;
+  position:relative;
+
+  overflow:hidden;
+
+  transition:
+  transform 0.25s ease,
+  box-shadow 0.25s ease,
+  background 0.25s ease;
 
   box-shadow:
-  0 5px 12px rgba(0,0,0,0.08);
+  0 8px 20px rgba(0,0,0,0.08);
 }
 
-.mood-btn:hover{
+.mood-btn::before,
+.energy-btn::before{
+
+  content:'';
+
+  position:absolute;
+
+  top:-50%;
+  left:-50%;
+
+  width:200%;
+  height:200%;
+
+  background:
+  linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+
+  transform:rotate(25deg);
+
+  opacity:0;
+
+  transition:0.5s;
+}
+
+.mood-btn:hover::before,
+.energy-btn:hover::before{
+
+  opacity:1;
+
+  animation:shine 1s linear;
+}
+
+.mood-btn:hover,
+.energy-btn:hover{
 
   transform:
-  translateY(-4px) scale(1.08);
+  translateY(-6px)
+  scale(1.08);
 
-  background:#ffe1ec;
+  background:
+  rgba(255,255,255,0.55);
+
+  box-shadow:
+  0 12px 24px rgba(255,79,141,0.18);
 }
 
-.selectedMood{
+.selectedMood,
+.selectedEnergy{
 
   background:
   linear-gradient(
     135deg,
-    #ff6b9c,
+    #ff78a7,
     #ff4f8d
   );
 
-  transform:scale(1.1);
+  color:white;
+
+  transform:scale(1.12);
 
   box-shadow:
-  0 10px 20px rgba(255,79,141,0.35);
+  0 14px 28px rgba(255,79,141,0.38),
+  0 0 18px rgba(255,79,141,0.28);
 }
 
 .current-status{
 
-  margin-top:5px;
+  margin-top:-5px;
 
   font-size:1rem;
 
-  color:#7b4d5d;
+  color:#7d5664;
 
   font-weight:600;
 }
 
-#currentMood{
+#currentMood,
+#currentEnergy{
 
   color:#ff4f8d;
 
   font-weight:700;
 }
 
-.energy-options{
+@keyframes shine{
 
-  display:flex;
-  gap:14px;
+  from{
+    transform:
+    translateX(-120%)
+    rotate(25deg);
+  }
 
-  margin:
-  15px 0 20px;
-}
-
-.energy-btn{
-
-  width:60px;
-  height:60px;
-
-  border:none;
-
-  border-radius:50%;
-
-  background:
-  rgba(255,255,255,0.7);
-
-  font-size:1.8rem;
-
-  cursor:pointer;
-
-  transition:0.3s;
-
-  box-shadow:
-  0 5px 12px rgba(0,0,0,0.08);
-}
-
-.energy-btn:hover{
-
-  transform:
-  translateY(-4px) scale(1.08);
-
-  background:#ffe1ec;
-}
-
-.selectedEnergy{
-
-  background:
-  linear-gradient(
-    135deg,
-    #ff6b9c,
-    #ff4f8d
-  );
-
-  transform:scale(1.1);
-
-  box-shadow:
-  0 10px 20px rgba(255,79,141,0.35);
-}
+  to{
+    transform:
+    translateX(120%)
+    rotate(25deg);
+  }
 }

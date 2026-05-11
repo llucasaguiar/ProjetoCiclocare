@@ -214,8 +214,11 @@ energyButtons.forEach(button => {
     const emoji =
     button.innerText;
 
+    const texto =
+    button.dataset.energy;
+
     energiaSelecionada =
-    `${emoji}`;
+    `${emoji} ${texto}`;
 
     currentEnergy.innerText =
     energiaSelecionada;
