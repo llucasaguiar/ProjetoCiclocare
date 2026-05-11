@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CicloCare | Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/dashboard.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+  <header class="navbar">
+
+    <div class="logo">
+
+      <img src="./assets/images/icone.png" alt="Logo">
+
+      <span>CicloCare</span>
+
+    </div>
+
+    <nav class="menu">
+
+      <a href="#">Avisos/Recomendações</a>
+      <a href="#">Sugestões</a>
+      <a href="#">Gráficos</a>
+      <a href="#">Análises</a>
+
+    </nav>
+
+    <div class="profile">
+
+      <img src="./assets/images/icone.png" alt="Perfil">
+
+    </div>
+
+  </header>
+
+  <main class="dashboard">
+
+    <section class="left-column">
+
+      <div class="status-card">
+
+  <h3>🌸 Fase Atual:</h3>
+
+  <p id="faseAtual">
+    Fo0licular
+  </p>
+
+  <h3>😊 Humor:</h3>
+
+  <div class="mood-options">
+
+  <button class="mood-btn" data-humor="Feliz">
+    😊
+  </button>
+
+  <button class="mood-btn" data-humor="Animada">
+    🤩
+  </button>
+
+  <button class="mood-btn" data-humor="Cansada">
+    😴
+  </button>
+
+  <button class="mood-btn" data-humor="Triste">
+    😢
+  </button>
+
+  <button class="mood-btn" data-humor="Irritada">
+    😡
+  </button>
+
+</div>
+
+<p class="current-status">
+
+  Humor Atual:
+  <span id="currentMood">
+    Nenhum
+  </span>
+
+</p>
+
+  <h3>⚡ Energia:</h3>
+
+  <div class="energy-options">
+
+    <button class="energy-btn">
+      🔋 Alta
+    </button>
+
+    <button class="energy-btn">
+      ⚡ Média
+    </button>
+
+    <button class="energy-btn">
+      🪫 Baixa
+    </button>
+
+  </div>
+
+<p class="current-status">
+
+  Humor Atual:
+  <span id="currentEnergy">
+    Nenhum
+  </span>
+
+  <h3>💡 Sugestão:</h3>
+
+  <span id="suggestionText">
+
+    Aproveite para iniciar projetos
+    ou estudar.
+
+  </span>
+
+</div>
+
+      <div class="insight-card">
+
+        <div class="card-header">
+
+          <h2>Insights do Ciclo</h2>
+
+          <span>⋮</span>
+
+        </div>
+
+        <div class="insight-content">
+
+          Seu ciclo tem sido muito regular
+          <strong>(28-29 dias)</strong>
+          nos últimos 6 meses.
+
+        </div>
+
+        <a href="#">Leia Mais..</a>
+
+      </div>
+
+    </section>
+
+    <section class="center-column">
+
+      <div class="calendar-card">
+
+  <div class="calendar-header">
+
+    <h2>Calendário</h2>
+
+    <div class="month-control">
+
+      <button id="prevMonth">‹</button>
+
+      <span id="monthYear"></span>
+
+      <button id="nextMonth">›</button>
+
+    </div>
+
+  </div>
+
+  <div class="weekdays">
+
+    <span>Dom</span>
+    <span>Seg</span>
+    <span>Ter</span>
+    <span>Qua</span>
+    <span>Qui</span>
+    <span>Sex</span>
+    <span>Sáb</span>
+
+  </div>
+
+  <div class="calendar-grid" id="calendarGrid"></div>
+
+</div>
+
+      <div class="graph-card">
+
+        <canvas id="cycleChart"></canvas>
+
+      </div>
+
+    </section>
+
+    <section class="right-column">
+
+      <div class="alert-card">
+
+        <div class="alert-icon">💧</div>
+
+        <div>
+
+          <h3>Lembrete de Água</h3>
+
+          <p>(2 Litros hoje)</p>
+
+        </div>
+
+      </div>
+
+      <div class="alert-card">
+
+        <div class="alert-icon">💊</div>
+
+        <div>
+
+          <h3>Pílula Tomada</h3>
+
+        </div>
+
+      </div>
+
+      <div class="alert-card">
+
+        <div class="alert-icon">📅</div>
+
+        <div>
+
+          <h3>Consulta com o Ginecologista</h3>
+
+          <p>em 2 dias</p>
+
+        </div>
+
+      </div>
+
+      <div class="alert-card big-alert">
+
+        <div class="alert-icon">❗</div>
+
+        <div>
+
+          <h3>Alerta de Insight</h3>
+
+          <p>
+            Notamos um padrão de cólicas leves antes da sua menstruação.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- JS -->
+  <script src="./js/dashboard.js"></script>
+
+</body>
+</html>
