@@ -60,18 +60,43 @@
 
 </nav>
 
-<!-- PERFIL -->
-<div class="perfil">
+<!-- ÁREA DIREITA DA NAVBAR -->
+<div class="navbar-right">
 
-  <i class="fa-solid fa-gear"></i>
+  <!-- SWITCH -->
+  <div class="pregnancy-switch">
 
-  <i class="fa-regular fa-bell"></i>
+    <span class="switch-label">
+      Modo Gestante
+    </span>
 
-  <div class="usuario">
+    <label class="switch">
 
-    <img src="https://i.pravatar.cc/100" alt="Usuária">
+      <input
+        type="checkbox"
+        id="pregnancyToggle"
+      >
 
-    <span>Olá, Mari</span>
+      <span class="slider"></span>
+
+    </label>
+
+  </div>
+
+  <!-- PERFIL -->
+  <div class="perfil">
+
+    <i class="fa-solid fa-gear"></i>
+
+    <i class="fa-regular fa-bell"></i>
+
+    <div class="usuario">
+
+      <img src="https://i.pravatar.cc/100" alt="Usuária">
+
+      <span>Olá, Mari</span>
+
+    </div>
 
   </div>
 
@@ -163,25 +188,40 @@
 </div>
 
       <div class="insight-card">
+          <div class="card-header">
+              <h2>Insights do Ciclo</h2>
+              <button class="options-btn-light" onclick="abrirModal()">⋮</button>
+          </div>
+          <div class="insight-content" id="textoInsight">
+              Seu ciclo tem sido muito regular <strong>(28-29 dias)</strong> nos últimos 6 meses.
+          </div>
+          <a href="#">Leia Mais..</a>
+      </div>
 
-        <div class="card-header">
+      <div id="modalParametros" class="modal-overlay">
+          <div class="modal-flower flower1"><img src="./assets/images/icone.png"></div>
+          <div class="modal-flower flower2"><img src="./assets/images/icone.png"></div>
+          <div class="modal-flower flower3"><img src="./assets/images/icone.png"></div>
 
-          <h2>Insights do Ciclo</h2>
+          <div class="modal-card">
+              <button class="modal-close" onclick="fecharModal()">&times;</button>
+              <h2>Configurar Ciclo</h2>
+              <p class="modal-subtitle">Ajuste os dados médios e o mês de referência.</p>
 
-          <span>⋮</span>
-
-        </div>
-
-        <div class="insight-content">
-
-          Seu ciclo tem sido muito regular
-          <strong>(28-29 dias)</strong>
-          nos últimos 6 meses.
-
-        </div>
-
-        <a href="#">Leia Mais..</a>
-
+              <div class="form-group-modal">
+                  <label>Mês de referência</label>
+                  <input type="month" id="mesReferencia">
+              </div>
+              <div class="form-group-modal">
+                  <label>Duração média do ciclo</label>
+                  <input type="number" id="cicloInput" placeholder="Ex: 28 dias">
+              </div>
+              <div class="form-group-modal">
+                  <label>Duração da fase lútea</label>
+                  <input type="number" id="luteaInput" placeholder="Ex: 14 dias">
+              </div>
+              <button class="btn-save-modal" onclick="salvarParametros()">Salvar Alterações</button>
+          </div>
       </div>
 
     </section>
@@ -294,6 +334,30 @@
 
   <!-- JS -->
   <script src="./js/dashboard.js"></script>
+
+  <!-- Testando -->
+   <div id="modalParametros" class="modal-overlay">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3>Ajustar Ciclo</h3>
+            <button class="close-btn" onclick="fecharModal()">&times;</button>
+        </div>
+        
+        <div class="modal-body">
+            <div class="form-group-dash">
+                <label for="cicloInput">Duração média do ciclo (dias)</label>
+                <input type="number" id="cicloInput" placeholder="Ex: 28" min="20" max="45">
+            </div>
+
+            <div class="form-group-dash">
+                <label for="luteaInput">Duração da fase lútea (dias)</label>
+                <input type="number" id="luteaInput" placeholder="Ex: 14" min="10" max="16">
+            </div>
+
+            <button class="save-modal-btn" onclick="salvarParametros()">Salvar Alterações</button>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
