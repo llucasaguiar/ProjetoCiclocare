@@ -226,3 +226,64 @@ energyButtons.forEach(button => {
   });
 
 });
+
+const pregnancyToggle =
+document.getElementById(
+  'pregnancyToggle'
+);
+
+pregnancyToggle.addEventListener(
+  'change',
+  () => {
+
+    const body =
+    document.body;
+
+    const suggestion =
+    document.getElementById(
+      'suggestionText'
+    );
+
+    if(pregnancyToggle.checked){
+
+      body.classList.add(
+        'gestante-mode'
+      );
+
+      suggestion.innerText =
+      'Momento ideal para descansar, manter hidratação e acompanhar sua saúde 💖';
+
+    }else{
+
+      body.classList.remove(
+        'gestante-mode'
+      );
+
+      suggestion.innerText =
+      'Aproveite para iniciar projetos ou estudar.';
+    }
+
+  }
+);
+
+// Função para abrir o modal de inserção manual
+function abrirModal() {
+    document.getElementById('modalParametros').style.display = 'flex';
+}
+
+function fecharModal() {
+    document.getElementById('modalParametros').style.display = 'none';
+}
+
+function salvarParametros() {
+    const ciclo = document.getElementById('cicloInput').value;
+    const lutea = document.getElementById('luteaInput').value;
+
+    if(ciclo && lutea) {
+        // Logica para salvar os dados futuramente
+        alert("Configurações salvas com sucesso!");
+        fecharModal();
+    } else {
+        alert("Preencha todos os campos.");
+    }
+}
