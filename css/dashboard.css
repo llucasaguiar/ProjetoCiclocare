@@ -1,24 +1,34 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins', sans-serif;
-}
-
-:root{
+:root {
+  --pink-main: #FF7093;
+  --pink-soft: #ffc0cb;
+  --pink-light: #fff1f5;
+  --pink-border: #ff6f8f;
   --rosa:#b26b6b;
   --rosaClaro:#f7dede;
   --rosaMedio:#f3c9d7;
   --lilas:#eccff3;
   --branco:#fff;
+  --text-main: #8b4d55;
+  --text-dark: #524C4E;
+  --card-bg: rgba(255, 246, 249, 0.82);
+  --shadow-soft: 0 12px 30px rgba(120, 60, 80, 0.16);
+  --inter-font: "Inter", sans-serif;
 }
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
 
 body{
   background:#efe2de;
   overflow-x:hidden;
+  font-family: 'Poppins', sans-serif;
 }
 
-.navbar{
+.navbar {
 
   width:100%;
   height:80px;
@@ -57,11 +67,10 @@ body{
   width:42px;
 }
 
-.menu{
+.menu {
 
-  display:flex;
-  align-items:center;
-  gap:50px;
+  display: flex;
+  gap: 40px;
 }
 
 .menu a{
@@ -139,36 +148,189 @@ body{
   font-weight:600;
 }
 
-.dashboard{
+/* .dashboard {
+  min-height: calc(100vh - 58px);
+  padding: 32px 64px;
+  display: grid;
+  grid-template-columns: 300px minmax(420px, 1fr) 220px;
+  gap: 32px;
+  
+} */
 
-  padding:25px;
-
+.dashboard {
+  padding: 32px 40px;
+  align-items: start;
   display:grid;
-
-  grid-template-columns:
-  280px
-  1fr
-  300px;
-
-  gap:25px;
+  justify-content: center;
+  grid-template-columns: 420px 760px;
+  gap: 48px;
 }
 
 .status-card,
 .insight-card,
 .calendar-card,
 .graph-card,
-.alert-card{
-
-  background:#f7eef0;
-
-  border-radius:25px;
-
-  padding:20px;
-
-  box-shadow:
-  0 8px 25px rgba(0,0,0,0.08);
-
+.alert-card {
+  background: var(--pink-light);
+  color: var(--text-main);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: var(--shadow-soft);
   animation:fadeUp 0.8s ease;
+}
+
+.dashboard-painel-direito {
+  width: 100%;
+  max-width: 760px;
+  justify-self: start;
+}
+
+.dashboard-painel-esquerdo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.cycle-circle {
+  width: 435px;
+  height: 435px;
+  border-radius: 50%;
+  background-image: url("../assets/icons/circulo-rosa.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: 48px;
+  color: white;
+  font-family: var(--inter-font);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cycle-circle h3 {
+  font-family: var(--inter-font);
+  transform: translateY(-28px);
+  font-size: 2rem;
+  transform: translateY(20px);
+}
+
+.cycle-circle img {
+  width: 412px;
+  height: 412px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.cycle-circle strong {
+  font-size: 3.4rem;
+  transform: translateY(30px);
+}
+
+.cycle-circle button {
+  margin-top: 50px;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 8px 10px rgba(80, 40, 55, 0.35);
+  font-family: var(--inter-font);
+  font-weight: 700;
+  padding: 8px 18px;
+  color: var(--text-main);
+  cursor: pointer;
+  transform: translateY(30px);
+  font-size: 0.9rem;
+}
+
+.controle-mes-ano {
+  display: flex;
+  gap: 15px;
+}
+
+.controle-mes-ano button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.controle-mes-ano button img {
+  width: 25px;
+  height: 25px;
+  display: block;
+}
+
+#seta_direita {
+  transform: scaleX(-1);
+}
+
+.options-button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.options-button img {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  display: block;
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+
+  margin-top: 8px;
+  margin-bottom: 8px;
+
+  color: var(--text-dark);
+  font-size: 2.2rem;
+  font-weight: 500;
+  text-transform: lowercase;
+}
+
+.weekdays span {
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.7rem;
+}
+
+.weekdays span:nth-child(odd) {
+  color: var(--text-dark);
+}
+
+.weekdays span:nth-child(even) {
+  color: var(--pink-main);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.current-month {
+  background: var(--pink-soft);
+  color: var(--text-main);
 }
 
 @keyframes fadeUp{
@@ -294,64 +456,18 @@ body{
   margin-bottom:20px;
 }
 
-.month-control{
-
-  display:flex;
-  align-items:center;
-  gap:15px;
-
-  font-size:2rem;
-  font-weight:700;
-}
-
-.month-control button{
-
-  border:none;
-  background:none;
-
-  font-size:2rem;
-
-  cursor:pointer;
-}
-
-.weekdays,
-.calendar-grid{
-
-  display:grid;
-
-  grid-template-columns:
-  repeat(7,1fr);
-
-  gap:10px;
-}
-
-.weekdays{
-
-  margin-bottom:15px;
-
-  font-size:1rem;
-
-  color:#666;
-
-  font-weight:600;
-}
-
 .day{
 
-  height:55px;
-
-  background:#f6c1d6;
-
-  border-radius:12px;
-
+  height: 32px;
+  background: var(--pink-soft);
+  border-radius: 6px;
   display:flex;
   justify-content:center;
   align-items:center;
-
-  font-size:1rem;
-
+  color: var(--text-main);
+  font-weight: 600;
+  font-size:1.4rem;
   cursor:pointer;
-
   transition:0.3s;
 }
 
@@ -369,6 +485,12 @@ body{
 
   box-shadow:
   0 5px 15px rgba(255,79,141,0.4);
+}
+
+.other-month {
+  background: transparent;
+  color: #b9a6ad;
+  background-color: var(--pink-light);
 }
 
 .graph-card{
